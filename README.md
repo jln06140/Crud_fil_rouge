@@ -22,7 +22,7 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
         -utilisateur et mot de passe : ceux renseignés lors de l'installation du logiciel
         -port : 3306
         ```
-- importer le fichier mist.sql dans le Systeme de gestion de BDD
+- importer le fichier mist.sql (situé dans dossier resources) dans le Systeme de gestion de BDD
 - cela importera toutes les données utiles pour le bon fonctionnement de spring boot
 - pour l'instant un seul role ayant tous les privileges a été crée
         ```
