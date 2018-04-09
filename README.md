@@ -34,7 +34,7 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
 - Installer postman afin de pouvoir effectuer des requetes pour obtenir les données (sur le localhost qui ecoute sur le port 8080)
 
 
-### Presentation api
+### Presentation api et contribution personnelle
 
 **Table Agent basée sur un repository utilisatnt Datasource et Le driver JDBC:**
 
@@ -51,6 +51,11 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
  * **DELETE** /api/suspect/[id] : supprime l'instance de suspect correspondant à l'id fourni.
  * **PUT** /api/suspect/[id] : met à jour l'instance de suspect correspondant à l'id fourni avec les informations fournies.
  * **DELETE** /api/suspect/[id] : supprime l'instance de suspect correspondant à l'id fourni.
+
+**Table Profil basée sur des requetes hibernate :**
+* **GET** /api/profil : liste les information de l'ensemble des instances de profil.
+* **GET** /api/agent/[libelle] : renvoie les informations d'une instance d'objet profil avec son libelle.
+
 
  **Table documents et Condamnations : Requetes a venir**
 
@@ -84,4 +89,6 @@ Une fois la compilation effectuée et build avec succes :
 
 * **Nourry Jean-Luc** 
 (https://github.com/jln06140)
+
+
 
