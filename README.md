@@ -89,6 +89,7 @@ Une fois la compilation effectuée et build avec succes :
 
 * **Nourry Jean-Luc** 
 (https://github.com/jln06140)
+Les documents tels que diagramme de classe et use case sont dans le dossier document
 
 
 
