@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.springboot.simplecrud.model.Agent;
+import co.simplon.springboot.simplecrud.model.Profil;
 import co.simplon.springboot.simplecrud.repository.AgentRepository;
+import co.simplon.springboot.simplecrud.repository.ProfilRepository;
 import co.simplon.springboot.simplecrud.service.AgentService;
 
 @RestController
@@ -26,6 +28,9 @@ public class AgentController {
 	
 	@Autowired
 	AgentService AgentService;
+	
+	@Autowired
+	ProfilRepository profilRepository;
 	
 	@CrossOrigin
 	@GetMapping("/agent")
@@ -68,7 +73,8 @@ public class AgentController {
 		if(agent.getEmail() != null) {
 			AgentToUpdate.setEmail(agent.getEmail());
 			AgentToUpdate.setMotdepasse(agent.getMotdepasse());
-			AgentToUpdate.setProfil(agent.getProfil());
+			Profil p = this.profilRepository.findAll().stream().filter((res)-> res.getLibelle().toUpperCase().equals(agent.getProfil().getLibelle())).findAny().get();
+			AgentToUpdate.setProfil(p);
 		}
 		Agent updatedAgent = this.AgentService.updateAgent(AgentToUpdate);
 		return ResponseEntity.ok(updatedAgent);

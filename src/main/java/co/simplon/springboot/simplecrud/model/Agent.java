@@ -40,7 +40,7 @@ public class Agent extends Personne implements Serializable{
 	
 	private String motdepasse;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_profil")
 	private Profil profil;
 	
