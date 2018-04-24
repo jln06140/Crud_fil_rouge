@@ -73,6 +73,7 @@ public class AgentController {
 		if(agent.getEmail() != null) {
 			AgentToUpdate.setEmail(agent.getEmail());
 			AgentToUpdate.setMotdepasse(agent.getMotdepasse());
+			//Profil p = this.profilRepository.findByLibelle(agent.getProfil().getLibelle()).get(0);
 			Profil p = this.profilRepository.findAll().stream().filter((res)-> res.getLibelle().toUpperCase().equals(agent.getProfil().getLibelle())).findAny().get();
 			AgentToUpdate.setProfil(p);
 		}
