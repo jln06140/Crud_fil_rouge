@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 09 avr. 2018 à 21:18
+-- Généré le :  mer. 02 mai 2018 à 19:45
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `agent` (
   `motdepasse` varchar(60) CHARACTER SET latin1 NOT NULL,
   `id_profil` int(11) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
   KEY `FK3wa50if079jnq26tuftbfc853` (`id_profil`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -72,9 +73,7 @@ CREATE TABLE IF NOT EXISTS `agent` (
 --
 
 INSERT INTO `agent` (`id`, `email`, `motdepasse`, `id_profil`) VALUES
-(19, 'sev@yahoo.fr', '', 2),
-(20, 'bernard.c@free.fr', 'azerty', 1),
-(21, 'rene@gmail.com', 'azert', 1);
+(21, 'rene@gmail.com', '', 2);
 
 -- --------------------------------------------------------
 
@@ -90,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `arme` (
   `nom_arme` varchar(255) NOT NULL,
   `numero_serie_arme` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `arme`
@@ -151,6 +150,23 @@ INSERT INTO `document` (`id`, `type`, `numero`, `date_emission`, `id_suspect`) V
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `employe`
+--
+
+DROP TABLE IF EXISTS `employe`;
+CREATE TABLE IF NOT EXISTS `employe` (
+  `date_debut_contrat` date DEFAULT NULL,
+  `fonction` varchar(255) DEFAULT NULL,
+  `grade` varchar(255) DEFAULT NULL,
+  `type_contrat` varchar(255) DEFAULT NULL,
+  `id` bigint(20) NOT NULL,
+  `profil_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `personne`
 --
 
@@ -163,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `adresse` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `ville` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `personne`
@@ -176,7 +192,30 @@ INSERT INTO `personne` (`id`, `nom`, `prenom`, `date_naissance`, `adresse`, `vil
 (18, 'contant', 'noel', NULL, 'rue du paradis', 'Nice'),
 (19, 'lorand', 'severine', NULL, '14 rue de la paix', 'bastia'),
 (20, 'cartou', 'bernard', NULL, '1 chemin de la gaude', 'saint jeannet'),
-(21, 'caribou', 'rené', NULL, 'rue du quebec', 'quebec');
+(21, 'caribou', 'rené', NULL, 'rue du que', 'quebec'),
+(22, 'dupont', 'marc', NULL, 'rue des lilas', 'menton'),
+(23, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(24, 'albert', 'jean-luc adrien', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(25, 'albert', 'jean-luc adrien', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(26, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(27, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'paris'),
+(28, 'momo', 'jean-luc ', NULL, '69 boulevard jean Maurel superieur', 'nice'),
+(29, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(30, 'albert', 'jean-luc adrien', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(31, 'albert', 'jean-luc adrien', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(32, '', '', NULL, '', ''),
+(33, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(34, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(35, 'henri', 'francis', NULL, 'rue paix', 'nice'),
+(36, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(37, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(38, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(39, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(40, 'Nourry', 'Jean', NULL, '69 boulevard jean Maurel superieur', 'VENCE'),
+(41, '', '', NULL, '', ''),
+(42, '', '', NULL, '', ''),
+(43, '', '', NULL, '', ''),
+(44, '', '', NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -244,6 +283,31 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `motdepasse`, `id_profil`) VALUES
 (4, 'Jordan', 'Suzanne', 'fdq@fdz.fr', 'cvdsq', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vehicule`
+--
+
+DROP TABLE IF EXISTS `vehicule`;
+CREATE TABLE IF NOT EXISTS `vehicule` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `marque` varchar(255) NOT NULL,
+  `modele` varchar(255) NOT NULL,
+  `couleur` varchar(255) NOT NULL,
+  `immatriculation` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `immatriculation` (`immatriculation`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `vehicule`
+--
+
+INSERT INTO `vehicule` (`id`, `marque`, `modele`, `couleur`, `immatriculation`) VALUES
+(4, 'Seat', 'Cordoba', 'Bleu', 'EX-154-PM'),
+(5, 'Ford', 'Mustang', 'Noir', '5849-LP-43');
 
 --
 -- Contraintes pour les tables déchargées

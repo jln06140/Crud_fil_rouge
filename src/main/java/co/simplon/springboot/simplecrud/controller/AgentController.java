@@ -57,7 +57,7 @@ public class AgentController {
 	
 	@CrossOrigin
 	@PutMapping("/agent/{id}")
-	ResponseEntity<Agent> updateUtilisateur(@PathVariable(value="id") long id, @Valid @RequestBody Agent agent) throws Exception{
+	ResponseEntity<Agent> updateAgent(@PathVariable(value="id") long id, @Valid @RequestBody Agent agent) throws Exception{
 		Agent AgentToUpdate = this.AgentService.getAgent(id);
 		if(AgentToUpdate == null)
 			return ResponseEntity.notFound().build();

@@ -4,6 +4,8 @@ co\simplon\springboot\simplecrud\service\AffaireService.class
 co\simplon\springboot\simplecrud\controller\ProfilController.class
 co\simplon\springboot\simplecrud\repository\AffaireRepository.class
 co\simplon\springboot\simplecrud\repository\ProfilRepository.class
+co\simplon\springboot\simplecrud\repository\VehiculeRepository.class
+co\simplon\springboot\simplecrud\service\VehiculeService.class
 co\simplon\springboot\simplecrud\controller\SuspectController.class
 co\simplon\springboot\simplecrud\service\AgentService.class
 co\simplon\springboot\simplecrud\repository\AgentRepository.class
@@ -15,9 +17,12 @@ co\simplon\springboot\simplecrud\repository\AgentRepositoryImpl.class
 co\simplon\springboot\simplecrud\controller\AgentController.class
 co\simplon\springboot\simplecrud\repository\SuspectRepository.class
 co\simplon\springboot\simplecrud\model\Personne.class
+co\simplon\springboot\simplecrud\controller\VehiculeController.class
+co\simplon\springboot\simplecrud\service\impl\VehiculeServiceImpl.class
 co\simplon\springboot\simplecrud\model\Affaire.class
 co\simplon\springboot\simplecrud\service\impl\AffaireServiceImpl.class
 co\simplon\springboot\simplecrud\model\Document.class
+co\simplon\springboot\simplecrud\service\ProfilService.class
 co\simplon\springboot\simplecrud\controller\AffaireController.class
 co\simplon\springboot\simplecrud\model\Agent.class
 co\simplon\springboot\simplecrud\service\impl\AgentServiceImpl.class

@@ -8,9 +8,15 @@ un supect est lié a des documents et des condamnations
 chaque agent possede obligatoirement un profil ( admin ou utilisateur)
 
 
-## Installations logiciels et serveurs requis
+### Prérequis
+- Java 1,8
+- Maven (+ commandes exécuter/déployer)
+- Git
+- SGBDR MySQL
+- scriptDatabaseCsi.sql
+- requetesInsertionDonnées.sql (obtention des données)
 
-- Avoir au prealable installer Eclipse JEE ainsi que maven (disponible sur site officiel)
+### Installation serveur MYSQL
 
 - Installer un serveur Mysql (https://www.mysql.com/fr/ dans la rubrique download ou de preference phpMyAdmin )
 - lors de l'installation, laissez le port d'origine (3306)
@@ -24,6 +30,13 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
         ```
 - importer le fichier mist.sql (situé dans dossier resources) dans le Systeme de gestion de BDD
 - cela importera toutes les données utiles pour le bon fonctionnement de spring boot
+- voici la base generée :
+
+![](Documents/bdd2.png)
+
+![](Documents/bdd1.png)
+
+
 - pour l'instant un seul role ayant tous les privileges a été crée
         ```
         - utilisateur : directeur
@@ -31,7 +44,6 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
         ```
 - ce profil est celui qui a un controle total a la base de donnée mist
 
-- Installer postman afin de pouvoir effectuer des requetes pour obtenir les données (sur le localhost qui ecoute sur le port 8080)
 
 
 ### Presentation api et contribution personnelle
@@ -61,28 +73,25 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
 
 ### Installation du projet
 
-Cloner et recuperer le projet
+Dans un repertoire de votre choix ouvrir GitBash et entrer la commande git clone https://github.com/jln06140/Crud_fil_rouge.git afin
+de recuperer le projet
 
-importer le projet en tant que "projet maven existant"
+ouvrir une fenetre de ligne de commande et se postionner à la racine du projet cloné.
 
-ouvrir une console de ligne de commande
-
-se deplacer a la racine du projet
 
 **Compilation**
 ```
-mvn clean install
+mvn clean install -DskipTests
 ```
 
 Une fois la compilation effectuée et build avec succes :
 
--retourner dans eclipse
+**Execution**
+```
+mvn spring-boot:run
+```
+Le serveur est demarré!
 
-- inutile de modifier les données dans ' application.properties' car les données  (lors installation mysql) au debut sont les meme que celles dans ce fichier
-
--lancer le projet (run as spring boot application)
-
-- Executer les differentes requetes grace au logiciel "Postman"
 
 
 ## Auteur
