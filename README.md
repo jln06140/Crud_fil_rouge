@@ -10,11 +10,10 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
 
 ### Prérequis
 - Java 1,8
-- Maven (+ commandes exécuter/déployer)
+- Maven 
 - Git
 - SGBDR MySQL
-- scriptDatabaseCsi.sql
-- requetesInsertionDonnées.sql (obtention des données)
+- mist.sql
 
 ### Installation serveur MYSQL
 
