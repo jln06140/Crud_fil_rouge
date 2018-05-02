@@ -31,9 +31,9 @@ chaque agent possede obligatoirement un profil ( admin ou utilisateur)
 - cela importera toutes les données utiles pour le bon fonctionnement de spring boot
 - voici la base generée :
 
-![](Documents/bdd2.png)
+![](documents/bdd2.png)
 
-![](Documents/bdd1.png)
+![](documents/bdd1.png)
 
 
 - pour l'instant un seul role ayant tous les privileges a été crée
