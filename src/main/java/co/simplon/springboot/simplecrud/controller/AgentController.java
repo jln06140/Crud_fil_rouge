@@ -1,6 +1,8 @@
 package co.simplon.springboot.simplecrud.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -16,9 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
 import co.simplon.springboot.simplecrud.model.Agent;
 import co.simplon.springboot.simplecrud.model.Profil;
-import co.simplon.springboot.simplecrud.repository.AgentRepository;
 import co.simplon.springboot.simplecrud.repository.ProfilRepository;
 import co.simplon.springboot.simplecrud.service.AgentService;
 
@@ -51,8 +54,18 @@ public class AgentController {
 	
 	@CrossOrigin
 	@PostMapping("/agent")
-	Agent addAgent(@Valid @RequestBody Agent agent) throws Exception{
-		return this.AgentService.addAgent(agent);
+	ResponseEntity<Object> addAgent(@Valid @RequestBody Agent agent) throws Exception{
+		Agent agentCree = null;
+	
+		try {
+			agentCree = this.AgentService.addAgent(agent);
+			return ResponseEntity.ok().body(agentCree);
+		}
+		catch (MySQLIntegrityConstraintViolationException e) {
+			Map<String,String> resultMap = new HashMap<String, String>();
+			resultMap.put("message", "Doublon email");
+			return ResponseEntity.badRequest().body(resultMap);
+		}
 	}
 	
 	@CrossOrigin

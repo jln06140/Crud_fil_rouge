@@ -30,6 +30,7 @@ public class AgentServiceImpl implements AgentService{
 
 	@Override
 	public Agent addAgent(Agent agent) throws Exception {
+		
 		return this.agentRepository.insertAgent(agent);
 	}
 
